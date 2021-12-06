@@ -1,12 +1,12 @@
 name: Docker Image CI
 
 on:
-  push:
-    branches: [ main ]
-
+  issue_comment:                                     
+    types: [created, edited, deleted]
 jobs:
 
   build:
+    if: ${{ github.event.comment.body == 'reexecute' }}
     runs-on: ubuntu-latest
 
     steps:
