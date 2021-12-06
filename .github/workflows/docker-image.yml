@@ -29,6 +29,6 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        docker build . --tag raul3520/mynewtestlatest
+        docker build . --tag raul3520/mynewtest:latest
         docker push raul3520/mynewtest:latest
         kubectl apply -f k8s.yaml
