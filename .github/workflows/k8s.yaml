@@ -7,7 +7,7 @@ metadata:
   name: testpod
 spec:
   containers:
-  - image: raul3520/mynewtestlatest
+  - image: raul3520/mynewtest:latest
     name: testpod
     resources: {}
   dnsPolicy: ClusterFirst
