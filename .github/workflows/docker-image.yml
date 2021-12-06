@@ -16,6 +16,7 @@ jobs:
 
       uses: docker/login-action@v1.10.0
       with:
+        registry: dockerhub.io
         username: ${{ secrets.DOCER_USER }}
         password: ${{ secrets.DOCKER_PASS }}
     
