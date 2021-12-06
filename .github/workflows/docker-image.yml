@@ -1,0 +1,33 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Docker Login
+
+      uses: docker/login-action@v1.10.0
+      with:
+        username: ${{ secrets.DOCER_USER }}
+        password: ${{ secrets.DOCKER_PASS }}
+    
+    - name: Kubernetes set context
+      uses: Azure/k8s-set-context@v1.1
+      with:
+        method: kubeconfig
+        kubeconfig: ${{ secrets.KUBECONFIG}}
+    
+    
+    - name: Build the Docker image
+      run: |
+        docker build . --tag raul3520/mynewtestlatest
+        docker push raul3520/mynewtest:latest
+        kubectl apply -f k8s.yaml
