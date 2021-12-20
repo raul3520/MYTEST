@@ -36,6 +36,7 @@ jobs:
         docker push raul3520/mynewtest:$tag
         
         sed -i "s/TAG/$tag/g" k8s.yaml
+        cat k8s.yaml
         kubectl apply -f k8s.yaml
         sleep 18
         sh k8monit.sh
