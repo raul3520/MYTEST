@@ -5,9 +5,9 @@ on:
     branches: [ main ]
 
 jobs:
-
+  
   build:
-
+    if: github.repository_owner == 'raul3520'
     runs-on: ubuntu-latest
 
     steps:
