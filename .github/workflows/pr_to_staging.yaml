@@ -29,9 +29,15 @@ jobs:
     
     - name: Build the Docker image
       run: |
+        apt-get update -f
+        apt install python3 python3-pip
+        pip3 install kubernetes
         tag="$(date '+%Y-%m')-${GITHUB_SHA::8}"
         echo $tag
         docker build . --tag raul3520/mynewtest:$tag
         docker push raul3520/mynewtest:$tag
+        
         sed -i "s/TAG/$tag/g" k8s.yaml
         kubectl apply -f k8s.yaml
+        sleep 180
+        python3 k8.py
