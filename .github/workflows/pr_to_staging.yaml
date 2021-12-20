@@ -1,8 +1,8 @@
-name: Docker Image CI on label
+name: CICD for PR to staging
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [ staging ]
 
 jobs:
   
@@ -29,6 +29,9 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        docker build . --tag raul3520/mynewtest:latest
-        docker push raul3520/mynewtest:latest
+        tag="$(date '+%Y-%m')-${GITHUB_SHA::8}"
+        
+        docker build . --tag raul3520/mynewtest:$tag
+        docker push raul3520/mynewtest:$tag
+        sed -i 's/TAG/$tag/g' k8s.yaml
         kubectl apply -f k8s.yaml
