@@ -29,9 +29,7 @@ jobs:
     
     - name: Build the Docker image
       run: |
-        #echo ${{ secrets.KUBECONFIG}}
-        #sudo apt install python3 python3-pip
-        #sudo pip3 install kubernetes
+
         tag="$(date '+%Y-%m')-${GITHUB_SHA::8}"
         echo $tag
         docker build . --tag raul3520/mynewtest:$tag
@@ -41,4 +39,4 @@ jobs:
         kubectl apply -f k8s.yaml
         sleep 18
         kubectl get pod
-        #sudo python3 k8.py
+
