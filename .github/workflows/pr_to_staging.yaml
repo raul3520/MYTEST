@@ -13,11 +13,13 @@ jobs:
     steps:
 
     - uses: actions/checkout@v2
+    
     - name: Run Super-Linter
-      uses: github/super-linter@v3
+      uses: github/super-linter@v4
       env:
-        DEFAULT_BRANCH: main
+        DEFAULT_BRANCH: master
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
     - name: Docker Login
 
       uses: docker/login-action@v1.10.0
