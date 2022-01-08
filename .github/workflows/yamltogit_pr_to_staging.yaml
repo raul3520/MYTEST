@@ -41,6 +41,7 @@ jobs:
 
 
     - name: Push yaml to github repo    
+      run: |
         sed -i "s/TAG/$tag/g" k8s.yaml
         cat k8s.yaml
         #kubectl apply -f k8s.yaml
