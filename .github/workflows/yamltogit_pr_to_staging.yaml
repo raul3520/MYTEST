@@ -32,8 +32,8 @@ jobs:
 
         tag="$(date '+%Y-%m')-${GITHUB_SHA::8}"
         echo $tag
-        docker build . --tag raul3520/mynewtest:$tag
-        docker push raul3520/mynewtest:$tag
+        #docker build . --tag raul3520/mynewtest:$tag
+        #docker push raul3520/mynewtest:$tag
         
 
 
@@ -51,7 +51,7 @@ jobs:
       with:
         email: raul3520@gmail.com
         name: GitHub Actions Autocommitter
-        branch: main
+        branch: master
         files: k8s.yaml
         repository: https://github.com/raul3520/yamlcode
         token: ${{ secrets.PAT }}
