@@ -1,4 +1,4 @@
-name: CICD for PR to staging
+name: CICD for PR to staging direct deploy
 
 on:
   pull_request:
@@ -11,7 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
     - uses: actions/checkout@v2
+    
+        
     - name: Docker Login
 
       uses: docker/login-action@v1.10.0
