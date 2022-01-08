@@ -1,5 +1,5 @@
 #!/bin/bash
-#sleep 180
+sleep 600
 podstat=$(kubectl get pod -A)
 stat=$(kubectl get pod -A |grep -v NAME|grep -v Running|wc -l)
 echo "$stat"
