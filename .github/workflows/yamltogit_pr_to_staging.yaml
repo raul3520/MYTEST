@@ -39,7 +39,7 @@ jobs:
 
     - name: Push yaml to github repo    
       run: |
-
+        echo "Tag at $tag"
         #kubectl apply -f k8s.yaml
         #sleep 18
         #sh k8monit.sh
