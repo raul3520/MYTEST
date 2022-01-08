@@ -27,18 +27,14 @@ jobs:
         kubeconfig: ${{ secrets.KUBECONFIG}}
     
     
-    - name: Build the Docker image
+    - name: Build the Docker image and push yaml to repo
       run: |
 
         tag="$(date '+%Y-%m')-${GITHUB_SHA::8}"
         echo $tag
         docker build . --tag raul3520/mynewtest:$tag
         docker push raul3520/mynewtest:$tag
-        
 
-
-    - name: Push yaml to github repo    
-      run: |
         echo "Tag at $tag"
         #kubectl apply -f k8s.yaml
         #sleep 18
