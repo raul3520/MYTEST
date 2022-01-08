@@ -45,13 +45,15 @@ jobs:
         #sleep 18
         #sh k8monit.sh
         
+
+        
         
     - name: push
       uses: actions-x/commit@v2
       with:
         email: raul3520@gmail.com
         name: GitHub Actions Autocommitter
-        branch: master
+        branch: main
         files: k8s.yaml
         repository: https://github.com/raul3520/yamlcode
         token: ${{ secrets.PAT }}
