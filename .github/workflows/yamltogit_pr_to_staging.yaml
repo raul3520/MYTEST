@@ -48,6 +48,7 @@ jobs:
         git remote set-url origin https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
         git clone https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
         cd yamlcode
+        ls
         sed -i "s/TAG/$tag/g" k8s.yaml
         cat k8s.yaml
         git add k8s.yaml
