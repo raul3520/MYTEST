@@ -58,6 +58,6 @@ jobs:
         repository: https://github.com/raul3520/yamlcode
         token: ${{ secrets.PAT }}
         force: true
-        working-dir: .
+
 
 
