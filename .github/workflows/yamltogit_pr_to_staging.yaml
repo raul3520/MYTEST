@@ -39,14 +39,17 @@ jobs:
 
     - name: Push yaml to github repo    
       run: |
-        sed -i "s/TAG/$tag/g" k8s.yaml
-        cat k8s.yaml
+
         #kubectl apply -f k8s.yaml
         #sleep 18
         #sh k8monit.sh
         git config --global user.email "raul3520@gmail.com"
         git config --global user.name "raul3520"
         git remote set-url origin https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
+        git clone https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
+        
+        sed -i "s/TAG/$tag/g" k8s.yaml
+        cat k8s.yaml
         git add k8s.yaml
         git commit -m "test"
         git push origin main
