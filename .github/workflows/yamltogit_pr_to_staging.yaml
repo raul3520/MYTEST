@@ -53,7 +53,7 @@ jobs:
       with:
         email: raul3520@gmail.com
         name: GitHub Actions Autocommitter
-        branch: main
+        branch: master
         files: k8s.yaml
         repository: https://github.com/raul3520/yamlcode
         token: ${{ secrets.PAT }}
