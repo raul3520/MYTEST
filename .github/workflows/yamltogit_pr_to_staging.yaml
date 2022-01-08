@@ -44,20 +44,16 @@ jobs:
         #kubectl apply -f k8s.yaml
         #sleep 18
         #sh k8monit.sh
+        git config --global user.email "raul3520@gmail.com"
+        git config --global user.name "raul3520"
+        git remote set-url origin https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
+        git add k8s.yaml
+        git commit -m "test"
+        git push origin main
         
 
         
-        
-    - name: push
-      uses: actions-x/commit@v2
-      with:
-        email: raul3520@gmail.com
-        name: GitHub Actions Autocommitter
-        branch: master
-        files: k8s.yaml
-        repository: https://github.com/raul3520/yamlcode
-        token: ${{ secrets.PAT }}
-        force: true
+
 
 
 
