@@ -47,10 +47,16 @@ jobs:
         git config --global user.name "raul3520"
         git remote set-url origin https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
         git clone https://raul3520:${{ secrets.PAT}}@github.com/raul3520/yamlcode.git
+        
+        cat k8s.yaml
+        sed -i "s/TAG/$tag/g" k8s.yaml
+        echo "##############"
+        cat k8s.yaml
         cp k8s.yaml yamlcode/k8s.yaml 
         cd yamlcode
         ls
-        sed -i "s/TAG/$tag/g" k8s.yaml
+        echo "##############"
+        cat k8s.yaml
         cat k8s.yaml
         git add k8s.yaml
         git commit -m "test"
