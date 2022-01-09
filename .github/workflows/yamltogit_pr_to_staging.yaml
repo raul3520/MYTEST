@@ -17,7 +17,10 @@ jobs:
       uses: github/super-linter@v4
       env:
         DEFAULT_BRANCH: master
+        VALIDATE_ALL_CODEBASE: false
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        VALIDATE_YAML: false
+        VALIDATE_BASH: false
 
 
     - name: Docker Login
