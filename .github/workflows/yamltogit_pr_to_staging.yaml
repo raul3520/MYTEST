@@ -22,11 +22,6 @@ jobs:
         VALIDATE_YAML: false
         VALIDATE_BASH: false
         
-    - name: Build the Docker image and push yaml to repo
-      run: |
-          tag1="$(date '+%Y-%m')-${{ github.run_number }}"
-          echo $tag1
-
     - name: Docker Login
 
       uses: docker/login-action@v1
